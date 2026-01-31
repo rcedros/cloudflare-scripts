@@ -6,7 +6,7 @@ Este é um script CLI (Command Line Interface) em Python para automatizar o gere
 
 O script permite importar bundles CA, associar hostnames a certificados e verificar associações existentes de forma programática.
 
-## 📋 Pré-requisitos
+## Pré-requisitos
 
 * Python 3.8+
 * Uma conta na Cloudflare com permissões para gerenciar SSL/mTLS.
@@ -21,13 +21,11 @@ cd seu-repositorio
 
 ```
 
-
 2. Instale as dependências necessárias:
 ```bash
 pip install -r requirements.txt
 
 ```
-
 
 *(Veja a seção "Dependências" abaixo para criar este arquivo se ainda não tiver)*
 
@@ -97,8 +95,6 @@ python cf-mtls-byca.py --import-bundle ... --insecure
 python cf-mtls-byca.py --help
 
 ```
-
-
 
 ## 📦 Dependências (`requirements.txt`)
 
