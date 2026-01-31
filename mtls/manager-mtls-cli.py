@@ -6,15 +6,13 @@ from cloudflare import Cloudflare, APIError
 from dotenv import load_dotenv
 from typing import List, Optional
 
-# Carrega variáveis (Token)
 load_dotenv()
 
-# --- Classe Gerenciadora (Mesma lógica anterior) ---
 class CloudflareMTLSManager:
     def __init__(self, api_token: Optional[str] = None, verify_ssl: bool = True):
         self.api_token = api_token or os.environ.get("CLOUDFLARE_API_KEY")
         if not self.api_token:
-            raise ValueError("Erro: CLOUDFLARE_API_KEY não encontrada, adicione em uma variavel, eg: CLOUDFLARE_API_KEY='xxxxxxxxxxx'.")
+            raise ValueError("Erro: CLOUDFLARE_API_KEY não encontrada, adicione em uma variavel no terminal, eg: CLOUDFLARE_API_KEY=xxx...'.")
 
         self.http_client = httpx.Client(verify=verify_ssl)
         self.client = Cloudflare(api_token=self.api_token, http_client=self.http_client)
@@ -69,7 +67,7 @@ class CloudflareMTLSManager:
 def main():
     parser = argparse.ArgumentParser(description="Gerenciador CLI de Cloudflare mTLS")
 
-    # Grupo de Ações (O usuário deve escolher EXATAMENTE uma dessas opções)
+    # Grupo de Ações
     action_group = parser.add_mutually_exclusive_group(required=True)
     action_group.add_argument('--import-bundle', action='store_true', help='Importar um novo certificado CA')
     action_group.add_argument('--update-associates', action='store_true', help='Associar hostnames a um certificado')
@@ -82,7 +80,7 @@ def main():
     parser.add_argument('--bundle', help='Caminho para o arquivo .pem')
     parser.add_argument('--hostnames', nargs='+', help='Lista de hostnames (separados por espaço)')
     
-    # Flag opcional para ignorar SSL (útil no seu caso)
+    # Flag opcional para ignorar SSL
     parser.add_argument('--insecure', action='store_true', help='Ignorar validação SSL (Não recomendado para prod)')
 
     args = parser.parse_args()
