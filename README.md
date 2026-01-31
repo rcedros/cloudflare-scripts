@@ -1,3 +1,3 @@
 # cloudflare-scripts
 
-Scripts simples para a gerencia do ambiente cloudflare.
+Scripts para a gerencia do ambiente cloudflare.
