@@ -14,7 +14,7 @@ O script permite importar bundles CA, associar hostnames a certificados e verifi
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/rcedros/cloudflare-scripts.git
 cd seu-repositorio
 
 ```
