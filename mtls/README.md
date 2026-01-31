@@ -37,6 +37,13 @@ CLOUDFLARE_API_KEY=seu_api_token_aqui
 
 ```
 
+ou Adicione o token em uma váriavel de ambiente.
+
+```bash
+CLOUDFLARE_API_KEY=seu_api_token_aqui
+
+```
+
 > **Nota:** Nunca comite o arquivo `.env` no Git. Adicione-o ao seu `.gitignore`.
 
 ## 📖 Como Usar
@@ -94,7 +101,7 @@ python cf-mtls-byca.py --help
 
 ```
 
-## 📦 Dependências (`requirements.txt`)
+## 📦 Dependências (requirements.txt)
 
 Certifique-se de que seu arquivo `requirements.txt` contenha as seguintes bibliotecas:
 
