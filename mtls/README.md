@@ -25,8 +25,6 @@ pip install -r requirements.txt
 
 ```
 
-*(Veja a seção "Dependências" abaixo para criar este arquivo se ainda não tiver)*
-
 ## ⚙️ Configuração
 
 Crie um arquivo `.env` na raiz do projeto para armazenar suas credenciais com segurança. O script buscará automaticamente por este arquivo.
