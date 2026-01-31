@@ -4,7 +4,7 @@ Este é um script CLI (Command Line Interface) em Python para automatizar o gere
 
 O script permite importar bundles CA, associar hostnames a certificados e verificar associações existentes de forma programática.
 
-## Pré-requisitos
+## 📋 Pré-requisitos
 
 * Python 3.8+
 * Uma conta na Cloudflare com permissões para gerenciar SSL/mTLS.
@@ -48,14 +48,14 @@ CLOUDFLARE_API_KEY=seu_api_token_aqui
 
 ## 📖 Como Usar
 
-O script `cf-mtls-byca.py` opera através de flags de comando. Você deve escolher uma ação principal (`--import-bundle`, `--update-associates` ou `--get-associates`) e fornecer os argumentos necessários.
+O script `manager-mtls-cli.py` opera através de flags de comando. Você deve escolher uma ação principal (`--import-bundle`, `--update-associates` ou `--get-associates`) e fornecer os argumentos necessários.
 
 ### 1. Importar um Certificado CA (Bundle)
 
 Envia um arquivo `.pem` para a Cloudflare e cria um novo certificado mTLS na conta especificada.
 
 ```bash
-python cf-mtls-byca.py --import-bundle \
+python manager-mtls-cli.py --import-bundle \
   --account "ID_DA_SUA_CONTA" \
   --bundle "caminho/para/arquivo_ca.pem"
 
@@ -66,7 +66,7 @@ python cf-mtls-byca.py --import-bundle \
 Associa um ou mais hostnames a um certificado mTLS já existente dentro de uma Zona específica.
 
 ```bash
-python cf-mtls-byca.py --update-associates \
+python manager-mtls-cli.py --update-associates \
   --zone_id "ID_DA_ZONA" \
   --mtls_certificate_id "ID_DO_CERTIFICADO" \
   --hostnames app.exemplo.com.br api.exemplo.com.br
@@ -78,7 +78,7 @@ python cf-mtls-byca.py --update-associates \
 Busca os hostnames atualmente associados a um certificado mTLS.
 
 ```bash
-python cf-mtls-byca.py --get-associates \
+python manager-mtls-cli.py --get-associates \
   --zone_id "ID_DA_ZONA" \
   --mtls_certificate_id "ID_DO_CERTIFICADO"
 
@@ -90,40 +90,13 @@ python cf-mtls-byca.py --get-associates \
 
 * **Ignorar SSL (Inseguro):** Se você estiver em um ambiente de desenvolvimento corporativo com proxy que intercepta SSL, use a flag `--insecure` para ignorar a validação do certificado HTTPS da API da Cloudflare.
 ```bash
-python cf-mtls-byca.py --import-bundle ... --insecure
+python manager-mtls-cli.py --import-bundle ... --insecure
 
 ```
 
 
 * **Ajuda:** Para ver todos os comandos disponíveis:
 ```bash
-python cf-mtls-byca.py --help
-
-```
-
-## 📦 Dependências (requirements.txt)
-
-Certifique-se de que seu arquivo `requirements.txt` contenha as seguintes bibliotecas:
-
-```text
-cloudflare
-httpx
-python-dotenv
-
-```
-
-## 🛡️ Segurança
-
-* O `account_id` e `zone_id` são passados via linha de comando para permitir o uso em múltiplas contas (multi-tenant).
-* O `CLOUDFLARE_API_KEY` deve ser mantido no arquivo `.env` para evitar exposição no histórico do terminal.
-
----
-
-### Dica Extra para você:
-
-Para que o passo de instalação funcione para outras pessoas, crie o arquivo `requirements.txt` rodando este comando na sua máquina antes de subir para o git:
-
-```bash
-pip freeze > requirements.txt
+python manager-mtls-cli.py --help
 
 ```
