@@ -1,5 +1,3 @@
----
-
 # Cloudflare mTLS Manager CLI
 
 Este é um script CLI (Command Line Interface) em Python para automatizar o gerenciamento de certificados mTLS (Mutual TLS) e associações de hostnames na Cloudflare. Ele utiliza a API oficial v4 da Cloudflare.
